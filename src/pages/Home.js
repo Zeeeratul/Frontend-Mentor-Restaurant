@@ -4,6 +4,7 @@ import PizzaDesktop from '../assets/homepage/hero-bg-desktop.jpg'
 import Button from '../components/Button'
 import { useHistory } from "react-router-dom"
 import Landing from '../views/Landing'
+import Description from '../views/Description'
 import MenuHighlights from '../views/MenuHighlights'
 import CTAReservation from '../views/CTAReservation'
 import Footer from '../views/Footer'
@@ -15,13 +16,14 @@ function Home() {
     return (
         <div
             css={{
-                width: '100%'
+                width: '100%',
             }}
         >
             <Landing />
-            <MenuHighlights />
-            <CTAReservation />
-            <Footer />
+            {/* <Description /> */}
+            {/* <MenuHighlights /> */}
+            {/* <CTAReservation /> */}
+            {/* <Footer /> */}
         </div>
     )
 }

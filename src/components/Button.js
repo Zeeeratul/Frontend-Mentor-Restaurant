@@ -2,7 +2,7 @@
 import styled from '@emotion/styled'
 
 const Button = styled.button({
-    width: '170px',
+    width: 245,
     height: '64px',
     fontFamily: 'Spartan',
     fontWeight: 600,
