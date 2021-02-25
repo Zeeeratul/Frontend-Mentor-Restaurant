@@ -27,11 +27,12 @@ const Button = styled.button({
         }
     }) :
     ({
-        color: props.theme.colors.primary.gray,
+        backgroundColor: props.theme.colors.primary.gray,
         borderColor: props.theme.colors.primary.gray,
+        color: props.theme.colors.primary.white,
         '&:hover': {
-            color: props.theme.colors.primary.white,
-            backgroundColor: props.theme.colors.primary.gray,
+            color: props.theme.colors.primary.gray,
+            backgroundColor: props.theme.colors.primary.white,
         }
     })
 )

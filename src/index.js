@@ -11,7 +11,8 @@ const theme = {
       white: '#FFFFFF',
       black: '#000000',
       beaver: '#9e7f66',
-      gray: '#111111'
+      gray: '#111111',
+      gold: '#9E7F66'
     },
     secondary: {
       mirage: '#17192b',

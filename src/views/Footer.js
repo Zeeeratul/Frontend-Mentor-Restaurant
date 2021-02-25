@@ -22,6 +22,11 @@ function Footer() {
                 },
                 '@media (min-width: 376px) and (max-width: 768px)': {
                     padding: '64px 40px',
+                    justifyContent: 'space-between',
+                    'h3:first-of-type': {
+                        marginTop: 0,
+                        marginBottom: 32
+                    },
                 },
                 '@media (max-width: 375px)': {
                     flexDirection: 'column',

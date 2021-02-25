@@ -1,53 +1,44 @@
 /** @jsxImportSource @emotion/react */
 import {ReactComponent as DivideLine} from '../assets/patterns/pattern-divide.svg'
-import SalmonDesktop from '../assets/homepage/salmon-desktop-tablet.jpg'
-import BeefDesktop from '../assets/homepage/beef-desktop-tablet.jpg'
-import ChocolateDesktop from '../assets/homepage/chocolate-desktop-tablet.jpg'
+import SalmonDesktopTablet from '../assets/homepage/salmon-desktop-tablet.jpg'
+import SalmonMobile from '../assets/homepage/salmon-mobile.jpg'
+import BeefDesktopTablet from '../assets/homepage/beef-desktop-tablet.jpg'
+import BeefMobile from '../assets/homepage/beef-mobile.jpg'
+import ChocolateDesktopTablet from '../assets/homepage/chocolate-desktop-tablet.jpg'
+import ChocolateMobile from '../assets/homepage/chocolate-mobile.jpg'
 import Button from '../components/Button'
-// import { SubTitle} from '../components/Typos'
+import { H3bold, H2, Body1, Body2 } from '../components/Typos'
 
 import { useHistory } from "react-router-dom"
 
+
+
 function MenuHighlights() {
-    const history = useHistory()
 
     return (
         <section
             css={{
-                height: 441,
-                padding: '200px 165px 120px 165px',
+                padding: '72px 24px',
                 backgroundColor: 'black',
                 color: 'white',
                 display: 'flex',
-                justifyContent: 'space-between'
+                flexDirection: 'column',
+                justifyContent: 'center'
             }}
         >
                 <div
                     css={{
-                        maxWidth: '445px',
-                        'h3': {
-                            color: '#FFFFFF',
-                            fontSize: 40,
-                            lineHeight: '56px',
-                            fontWeight: 'bold',
-                            letterSpacing: '-0.5px',
-                            marginTop: 55,
+                        textAlign: 'center',
+                        marginBottom: 64,
+                        'h2': {
+                            marginTop: 32,
                             marginBottom: 16
-                        },
-                        'p': {
-                            fontSize: 18,
-                            lineHeight: '30px',
-                            letterSpacing: '-0.225px',
-                        },
-                        'svg': {
-                            position: 'absolute'
                         }
                     }}
                 >
                     <DivideLine />
-                    <h3>A few highlights from our menu</h3>
-                    <p>We cater for all dietary requirements, but here’s a glimpse at some of our diner’s favourites. 
-                    Our menu is revamped every season.</p>
+                    <H2 variant="light">A few highlights from our menu</H2>
+                    <Body1 variant="light">We cater for all dietary requirements, but here’s a glimpse at some of our diner’s favourites. Our menu is revamped every season.</Body1>
                 </div>
 
                 <div>
@@ -55,155 +46,79 @@ function MenuHighlights() {
                         id="salmon"
                         css={{
                             display: 'flex',
-                            alignItems: 'center',
-                            paddingBottom: 22,
-                            borderBottom: '1px solid rgba(255, 255, 255, 0.15);',
+                            flexDirection: 'column',
+                            borderBottom: '1px solid rgba(255, 255, 255, .15)',
+                            marginBottom: 24
                         }}
                     >
+                        <img alt="salmon" src={SalmonMobile} />
                         <div
                             css={{
-                                marginRight: 62,
-                                position: 'relative',
-                                zIndex: 1,
-                                'img': {
-                                    width: 128,
-                                    height: 96,
+                                textAlign: 'center',
+                                'h3': {
+                                    marginTop: 32,
+                                    marginBottom: 4
                                 },
-                                'svg': {
-                                    position: 'absolute',
-                                    top: 18,
-                                    left: 89,
-                                    zIndex: -1
+                                'p': {
+                                    marginTop: 0,
+                                    marginBottom: 24
                                 }
                             }}
                         >
-                            <img alt="salmon" src={SalmonDesktop} />
-                            <DivideLine />
-                        </div>
-                        <div
-                            css={{
-                                maxWidth: 350,
-                                'h6': {
-                                    fontSize: 18,
-                                    lineHeight: '30px',
-                                    letterSpacing: '-0.225px',
-                                    fontWeight: 'bold',
-                                    margin: 0,
-                                },
-                                'p': {
-                                    fontSize: 15,
-                                    lineHeight: '28px',
-                                    letterSpacing: '-0.1875px',
-                                    margin: 0,
-                                },
-                            }}
-                        >
-                            <h6>Seared Salmon Fillet</h6>
-                            <p>Our locally sourced salmon served with a refreshing buckwheat summer salad.</p>
+                            <H3bold variant="light">Seared Salmon Fillet</H3bold>
+                            <Body2 variant="light">Our locally sourced salmon served with a refreshing buckwheat summer salad.</Body2>
                         </div>
                     </div>
-
                     <div
                         id="beef"
                         css={{
                             display: 'flex',
-                            alignItems: 'center',
-                            paddingBottom: 22,
-                            paddingTop: 24,
-                            borderBottom: '1px solid rgba(255, 255, 255, 0.15);',
+                            flexDirection: 'column',
+                            borderBottom: '1px solid rgba(255, 255, 255, .15)',
+                            marginBottom: 24
                         }}
                     >
+                        <img alt="beef" src={BeefMobile} />
                         <div
                             css={{
-                                marginRight: 62,
-                                position: 'relative',
-                                zIndex: 1,
-                                'img': {
-                                    width: 128,
-                                    height: 96,
+                                textAlign: 'center',
+                                'h3': {
+                                    marginTop: 32,
+                                    marginBottom: 4
                                 },
-                                'svg': {
-                                    position: 'absolute',
-                                    top: 18,
-                                    left: 89,
-                                    zIndex: -1
+                                'p': {
+                                    marginTop: 0,
+                                    marginBottom: 24
                                 }
                             }}
                         >
-                            <img alt="beef" src={BeefDesktop} />
-                            <DivideLine />
-                        </div>
-                        <div
-                            css={{
-                                maxWidth: 350,
-                                'h6': {
-                                    fontSize: 18,
-                                    lineHeight: '30px',
-                                    letterSpacing: '-0.225px',
-                                    fontWeight: 'bold',
-                                    margin: 0,
-                                },
-                                'p': {
-                                    fontSize: 15,
-                                    lineHeight: '28px',
-                                    letterSpacing: '-0.1875px',
-                                    margin: 0,
-                                },
-                            }}
-                        >
-                            <h6>Rosemary Filet Mignon</h6>
-                            <p>Our prime beef served to your taste with a delicious choice of seasonal sides.</p>
+                            <H3bold variant="light">Rosemary Filet Mignon</H3bold>
+                            <Body2 variant="light">Our prime beef served to your taste with a delicious choice of seasonal sides.</Body2>
                         </div>
                     </div>
                     <div
                         id="chocolate"
                         css={{
                             display: 'flex',
-                            alignItems: 'center',
-                            paddingBottom: 22,
-                            paddingTop: 24,
+                            flexDirection: 'column',
                         }}
                     >
+                        <img alt="chocolate" src={ChocolateMobile} />
                         <div
                             css={{
-                                marginRight: 62,
-                                position: 'relative',
-                                zIndex: 1,
-                                'img': {
-                                    width: 128,
-                                    height: 96,
+                                textAlign: 'center',
+                                'h3': {
+                                    marginTop: 32,
+                                    marginBottom: 4
                                 },
-                                'svg': {
-                                    position: 'absolute',
-                                    top: 18,
-                                    left: 89,
-                                    zIndex: -1
+                                'p': {
+                                    marginTop: 0,
+                                    marginBottom: 0
                                 }
                             }}
                         >
-                            <img alt="chocolate" src={ChocolateDesktop} />
-                            <DivideLine />
-                        </div>
-                        <div
-                            css={{
-                                maxWidth: 350,
-                                'h6': {
-                                    fontSize: 18,
-                                    lineHeight: '30px',
-                                    letterSpacing: '-0.225px',
-                                    fontWeight: 'bold',
-                                    margin: 0,
-                                },
-                                'p': {
-                                    fontSize: 15,
-                                    lineHeight: '28px',
-                                    letterSpacing: '-0.1875px',
-                                    margin: 0,
-                                },
-                            }}
-                        >
-                            <h6>Summer Fruit Chocolate Mousse</h6>
-                            <p>Creamy mousse combined with summer fruits and dark chocolate shavings.</p>
+                            <H3bold variant="light">Summer Fruit Chocolate Mousse</H3bold>
+                            <Body2 variant="light">Creamy mousse combined with summer fruits and dark chocolate shavings.</Body2>
                         </div>
                     </div>
                 </div>

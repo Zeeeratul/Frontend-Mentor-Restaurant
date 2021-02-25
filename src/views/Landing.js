@@ -7,7 +7,6 @@ import Button from '../components/Button'
 import { useHistory } from "react-router-dom"
 import { H1, Body1 } from '../components/Typos'
 
-
 function Landing() {
     const history = useHistory()
     const handleClick = () => history.push('/booking')
@@ -17,81 +16,89 @@ function Landing() {
             css={theme => ({
                 display: 'flex',
                 flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                position: 'relative',
+                padding: '232px 24px 152px 24px',
                 backgroundColor: 'black',
-                color: 'white',
-                padding: '65px 0px 198px 165px',
-                backgroundImage: `url(${PizzaDesktop})`,
-                backgroundPosition: 'center top',
-                backgroundRepeat: 'no-repeat',
+                '&::before': {
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    content: '""',
+                    width: '100%',
+                    height: '224px',
+                    backgroundPosition: 'top',
+                    backgroundColor: '#111111',
+                    backgroundImage: `url(${PizzaMobile})`,
+                    backgroundRepeat: 'no-repeat',
+                },
+                '.logo': {
+                    width: 82.4,
+                },
                 '.title': {
-                    maxWidth: 524,
-                    marginTop: 154,
+                    marginTop: 32,
                     marginBottom: 12,
-                    fontWeight: 300,
-                    fontSize: 64,
-                    lineHeight: '72px',
-                    letterSpacing: -0.8
                 },
                 '.subtitle': {
-                    maxWidth: 445,
                     marginTop: 12,
-                    marginBottom: 42,
-                    fontWeight: 400,
-                    fontSize: 18,
-                    lineHeight: '30px',
-                    letterSpacing: -0.225,
+                    marginBottom: 32,
                 },
-                // Tablet and Mobile both
-                '@media (max-width: 768px)': {
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                },
-                // Tablet
-                '@media (min-width: 376px) and (max-width: 768px)': {
+
+                '@media (min-width: 768px) and (max-width: 1439px)': {
                     padding: '374px 40px 216px 40px',
-                    backgroundImage: `url(${PizzaTablet})`,
+                    '.logo': {
+                        width: 103
+                    },
                     '.title': {
-                        marginTop: 32,
-                        marginBottom: 12,
-                        fontWeight: 300,
-                        fontSize: 48,
-                        lineHeight: '64px',
-                        letterSpacing: -0.6
+                        width: 400
                     },
                     '.subtitle': {
+                        width: 573,
                         marginBottom: 24,
                     },
+                    '&::before': {
+                        height: '372px',
+                        backgroundImage: `url(${PizzaTablet})`,
+                    },
                 },
-                // Mobile
-                '@media (max-width: 375px)': {
-                    padding: '232px 24px 152px 24px',
-                    backgroundImage: `url(${PizzaMobile})`,
+                // Desktop style
+                '@media (min-width: 1440px)': {
+                    alignItems: 'flex-start',
+                    padding: '65px 752px 198px 165px',
+                    textAlign: 'left',
+                    '> *': {
+                        zIndex: 1,
+                    },
                     '.logo': {
-                        width: 82.4,
+                        width: 103
                     },
                     '.title': {
-                        marginTop: 32,
+                        maxWidth: 524,
+                        marginTop: 153,
                         marginBottom: 12,
-                        fontWeight: 300,
-                        fontSize: 32,
-                        lineHeight: '40px',
-                        letterSpacing: -0.4
                     },
                     '.subtitle': {
+                        maxWidth: 445,
                         marginTop: 12,
-                        marginBottom: 32,
-                        fontWeight: 400,
-                        fontSize: 15,
-                        lineHeight: '25px',
-                        letterSpacing: -0.1875,
+                        marginBottom: 42,
+                    },
+                    '&::before': {
+                        zIndex: 0,
+                        position: 'absolute',
+                        content: '""',
+                        height: '100%',
+                        backgroundPosition: 'right',
+                        backgroundColor: '#111111',
+                        backgroundImage: `url(${PizzaDesktop})`,
+                        backgroundRepeat: 'no-repeat',
                     },
                 },
             })}
         >
             <Logo className="logo" viewBox="0 0 103 40" />
-            <h1 className="title" variant="light">Exquisite dining since 1989</h1>
-            <p className="subtitle" variant="light">Experience our seasonal menu in beautiful country surroundings. Eat the freshest produce from the comfort of our farmhouse.</p>
+            <H1 className="title" variant="light">Exquisite dining since 1989</H1>
+            <Body1 className="subtitle" variant="light">Experience our seasonal menu in beautiful country surroundings. Eat the freshest produce from the comfort of our farmhouse.</Body1>
             <Button onClick={handleClick} variant="light">BOOK A TABLE</Button>
         </section>
     )

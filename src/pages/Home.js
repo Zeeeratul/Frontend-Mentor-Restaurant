@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom"
 import Landing from '../views/Landing'
 import Description from '../views/Description'
 import MenuHighlights from '../views/MenuHighlights'
+import Family from '../views/Family'
 import CTAReservation from '../views/CTAReservation'
 import Footer from '../views/Footer'
 
@@ -20,10 +21,11 @@ function Home() {
             }}
         >
             <Landing />
-            {/* <Description /> */}
-            {/* <MenuHighlights /> */}
-            {/* <CTAReservation /> */}
-            {/* <Footer /> */}
+            {/* <Description />
+            <MenuHighlights />
+            <Family />
+            <CTAReservation />
+            <Footer /> */}
         </div>
     )
 }
