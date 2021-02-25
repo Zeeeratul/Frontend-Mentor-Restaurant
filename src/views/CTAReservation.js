@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
 import BackgroundPizzaDesktop from '../assets/homepage/ready-bg-desktop.jpg'
 import BackgroundPizzaTablet from '../assets/homepage/ready-bg-tablet.jpg'
 import BackgroundPizzaMobile from '../assets/homepage/ready-bg-mobile.jpg'
@@ -10,31 +9,35 @@ function CTAReservation() {
     return (
         <section
             css={{
-                height: 240,
+                padding: '80px 24px',
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'space-around',
-                padding: '0px 40px',
-                backgroundImage: `url(${BackgroundPizzaDesktop})`,
-                backgroundRepeat: 'no-repeat',
+                textAlign: 'center',
+                backgroundImage: `url(${BackgroundPizzaMobile})`,
+                // backgroundRepeat: 'no-repeat',
                 'h2': {
-                    margin: 0,
+                    marginTop: 0,
+                    marginBottom: 24,
                 },
-                '@media (max-width: 768px)': {
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                    textAlign: 'center',
-                    'h2': {
-                        marginBottom: 24,
-                    }
-                },
-                '@media (min-width: 376px) and (max-width: 768px)': {
-                    height: 272,
+                // Tablet style
+                '@media (min-width: 375px)': {
+                    padding: 64,
                     backgroundImage: `url(${BackgroundPizzaTablet})`,
                 },
-                '@media (max-width: 375px)': {
-                    height: 328,
-                    backgroundImage: `url(${BackgroundPizzaMobile})`,
+                // Desktop style
+                '@media (min-width: 768px)': {
+                    backgroundImage: `url(${BackgroundPizzaDesktop})`,
+                },
+                '@media (min-width: 1220px)': {
+                    backgroundImage: `url(${BackgroundPizzaDesktop})`,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '88px 165px',
+                    'h2': {
+                        margin: 0
+                    }
                 },
             }}
         >

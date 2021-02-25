@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
 import {ReactComponent as Logo} from '../assets/logo.svg'
 import { H3 } from '../components/Typos'
 
@@ -8,38 +7,47 @@ function Footer() {
         <footer
             css={theme => ({
                 backgroundColor: theme.colors.primary.gray,
-                padding: '78px 165px',
                 display: 'flex',
-
-
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                padding: '80px 24px',
                 'h3': {
-                    fontWeight: 400,
+                    fontWeight: 'normal',
                     margin: 0
                 },
                 'h3:first-of-type': {
                     marginTop: 40,
                     marginBottom: 32
                 },
-                '@media (min-width: 376px) and (max-width: 768px)': {
+                // Tablet style
+                '@media (min-width: 768px)': {
                     padding: '64px 40px',
-                    justifyContent: 'space-between',
+                    flexDirection: 'row',
+                    alignItems: 'flex-start',
+                    'svg': {
+                        marginRight: 130
+                    },
+                    'div': {
+                        display: 'flex',
+                        flexDirection: 'row',
+                        flexGrow: 1,
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-between',
+                        textAlign: 'left',
+                    },
                     'h3:first-of-type': {
                         marginTop: 0,
                         marginBottom: 32
                     },
                 },
-                '@media (max-width: 375px)': {
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    padding: '80px 24px',
+                // Desktop style
+                '@media (min-width: 1440px)': {
+                    padding: '78px 165px'
                 },
             })}
         >
-            <Logo 
-                css={{
-                }} 
-            />
+            <Logo />
             <div>
                 <H3 variant="light">
                     Marthwaite, Sedbergh<br />

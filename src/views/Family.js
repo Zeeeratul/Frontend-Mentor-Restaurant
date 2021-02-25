@@ -16,38 +16,46 @@ import SpecialMobile from '../assets/homepage/special-events-mobile.jpg'
 import { H2, Body1 } from '../components/Typos'
 import Button from '../components/Button'
 
-const Images = {
+const Datas = {
     family: {
         desktop: FamilyDesktop,
         tablet: FamilyTablet,
-        mobile: FamilyMobile
+        mobile: FamilyMobile,
+        title: 'Family Gathering',
+        text: `We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.`
     },
     social: {
         desktop: SocialDesktop,
         tablet: SocialTablet,
-        mobile: SocialMobile
+        mobile: SocialMobile,
+        title: 'Social Events',
+        text: `Are you looking to have a larger social event? No problem! We’re more than happy to cater for big 
+        parties. We’ll work with you to make your event a hit with everyone.`
     },
     special: {
         desktop: SpecialDesktop,
         tablet: SpecialTablet,
-        mobile: SpecialMobile
+        mobile: SpecialMobile,
+        title: 'Special Events',
+        text: `Whether it’s a romantic dinner or special date you’re celebrating with others we’ll look after you. 
+        We’ll be sure to mark your special date with an unforgettable meal.`
     },
 }
 
 function Family() {
-    const [imageDisplayed, setImageDisplayed] = useState('family')
+    const [themeDisplayed, setThemeDisplayed] = useState('family')
 
     const handleClickDisplayImage = (image) => {
-        setImageDisplayed(image)
+        setThemeDisplayed(image)
     }
 
     return (
         <section
             css={theme => ({
+                padding: '80px 24px 124px 24px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                padding: '80px 24px 124px 24px',
                 textAlign: 'center',
                 '.links': {
                     marginTop: 48,
@@ -92,60 +100,94 @@ function Family() {
                 'img': {
                     display: "none",
                 },
-                'img.desktop': {
+                'img.mobile': {
                     display: 'block'
                 },
-                '@media (max-width: 768px) and (min-width: 375px)': {
-                    'img.desktop': {
-                        display: "none",
-                    },
+                '@media (min-width: 768px) and (max-width: 1439px)': {
+                    padding: '40px 120px',
                     'img.tablet': {
                         display: 'block'
                     },
                     'img.mobile': {
                         display: 'none'
+                    },
+                    '.links': {
+                        flexDirection: 'row',
+                        marginBottom: 40,
+                        width: '100%',
+                        justifyContent: 'space-between'
                     }
                 },
-                '@media (max-width: 375px)': {
+                '@media (min-width: 1440px)': {
+                    padding: '160px 165px',
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gridTemplateRows: '1fr 1fr',
                     'img.desktop': {
-                        display: "none",
-                    },
-                    'img.tablet': {
-                        display: 'none'
+                        display: "block",
+                        gridRow: '1 / 3'
                     },
                     'img.mobile': {
-                        display: 'block'
+                        display: 'none'
+                    },
+                    '.links': {
+                        gridColumn: '2 / 3',
+                        gridRow: '2 / 3',
+                        alignItems: 'flex-start',
+                        'button': {
+                            marginBottom: 12,
+                            '&.active': {
+                                opacity: 1,
+                                '&::after': {
+                                    content: '""',
+                                    height: 1,
+                                    width: 95,
+                                    background: theme.colors.primary.gold,
+                                    borderBottom: 'none',
+                                    position: 'absolute',
+                                    bottom: 15,
+                                    left: -125,
+                                    zIndex: -1
+                                }
+                            },
+                        }
+                    },
+                    '.description': {
+                        textAlign: 'left'
                     }
-                },
+                }
             })}
         >   
-            <img src={Images[imageDisplayed].desktop} className="desktop" alt="desktop" />
-            <img src={Images[imageDisplayed].tablet} className="tablet" alt="tablet" />
-            <img src={Images[imageDisplayed].mobile} className="mobile" alt="mobile" />
+            <img src={Datas[themeDisplayed].desktop} className="desktop" alt="desktop" />
+            <img src={Datas[themeDisplayed].tablet} className="tablet" alt="tablet" />
+            <img src={Datas[themeDisplayed].mobile} className="mobile" alt="mobile" />
             <div className="links">
                 <button 
                     onClick={() => handleClickDisplayImage('family')} 
-                    className={imageDisplayed === 'family' ? 'active' : ''}
+                    className={themeDisplayed === 'family' ? 'active' : ''}
                 >
                     Family Gathering
                 </button>
                 <button 
                     onClick={() => handleClickDisplayImage('special')}
-                    className={imageDisplayed === 'special' ? 'active' : ''}
+                    className={themeDisplayed === 'special' ? 'active' : ''}
                 >
                     Special Events
                 </button>
                 <button 
                     onClick={() => handleClickDisplayImage('social')}
-                    className={imageDisplayed === 'social' ? 'active' : ''}
+                    className={themeDisplayed === 'social' ? 'active' : ''}
                 >
                     Social Events
                 </button>
             </div>
-            <H2 variant="dark">Family Gathering</H2>
-            <Body1 variant="dark">We love catering for entire families. So please bring everyone along for a special meal with your loved ones. We’ll provide a memorable experience for all.</Body1>
-            <Button variant="dark">Book a table</Button>
+            <div className="description">
+                <H2 variant="dark">{Datas[themeDisplayed].title}</H2>
+                <Body1 variant="dark">{Datas[themeDisplayed].text}</Body1>
+                <Button variant="dark">Book a table</Button>
+            </div>
         </section>
+
     )
 }
 
