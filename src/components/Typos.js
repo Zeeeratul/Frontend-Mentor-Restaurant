@@ -29,7 +29,7 @@ const H2 = styled.h2(
         lineHeight: '56px',
         fontWeight: 'bold',
         letterSpacing: -0.5,
-        '@media (max-width: 375px)': {
+        '@media (max-width: 767px)': {
             fontSize: 32,
             lineHeight: '40px',
             letterSpacing: -0.4,

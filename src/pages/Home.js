@@ -21,11 +21,11 @@ function Home() {
             }}
         >
             <Landing />
-            {/* <Description />
+            <Description />
             <MenuHighlights />
             <Family />
             <CTAReservation />
-            <Footer /> */}
+            <Footer />
         </div>
     )
 }
