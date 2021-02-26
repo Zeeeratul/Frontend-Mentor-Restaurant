@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css } from '@emotion/react'
-import { useEffect, useState } from 'react'
 import {ReactComponent as DivideLine} from '../assets/patterns/pattern-divide.svg'
+import {ReactComponent as PatternLines} from '../assets/patterns/pattern-lines.svg'
 import {ReactComponent as PatternTopLeftCurve} from '../assets/patterns/pattern-curve-top-left.svg'
 import {ReactComponent as PatternTopRightCurve} from '../assets/patterns/pattern-curve-top-right.svg'
 import EnjoyablePlaceDesktop from '../assets/homepage/enjoyable-place-desktop.jpg'
@@ -22,7 +21,7 @@ function Description() {
                 alignItems: 'center',
                 padding: '0px 24px',
                 textAlign: 'center',
-                'img': {
+                'img, .pattern-lines, .pattern-curve-top-left, .pattern-curve-top-right': {
                     display: 'none',
                 },
                 '.mobile': {
@@ -71,7 +70,21 @@ function Description() {
                         maxWidth: 457
                     },
                     '.container': {
-                        paddingBottom: 120
+                        paddingBottom: 120,
+                        position: 'relative'
+                    },
+                    '.pattern-lines': {
+                        display: 'block',
+                        position: 'absolute',
+                        right: -50,
+                        top: 180
+                    },
+                    '.pattern-curve-top-right': {
+                        zIndex: -1,
+                        display: 'block',
+                        position: 'absolute',
+                        right: 290,
+                        top: 44
                     },
                     '.tablet.enjoyable-place': {
                         marginTop: -96
@@ -80,22 +93,12 @@ function Description() {
                 // Desktop style
                 '@media (min-width: 1440px)': {
                     padding: '0px 165px',
-                    '.mobile': {
-                        display: 'none',
-                    },
-                    '.desktop': {
-                        display: 'block',
-                        marginBottom: -70
-                    },
-                    '.desktop.enjoyable-place': {
-                        marginTop: -70,
-                        marginBottom: 0
-                    },
                     '.container': {
                         width: '100%',
                         flexDirection: 'row',
                         justifyContent: 'space-between',
                         paddingBottom: 120,
+                        position: 'relative'
                     },
                     '.container:last-of-type': {
                         flexDirection: 'row-reverse',
@@ -109,7 +112,38 @@ function Description() {
                     'h2': {
                         marginTop: 48,
                         marginBottom: 16
-                    }
+                    },
+                    '.mobile': {
+                        display: 'none',
+                    },
+                    '.desktop': {
+                        display: 'block',
+                        marginBottom: -70
+                    },
+                    '.desktop.enjoyable-place': {
+                        marginTop: -70,
+                        marginBottom: 0
+                    },
+                    '.pattern-lines': {
+                        display: 'block',
+                        position: 'absolute',
+                        right: -104,
+                        top: 230
+                    },
+                    '.pattern-curve-top-left': {
+                        zIndex: -1,
+                        display: 'block',
+                        position: 'absolute',
+                        right: -165,
+                        bottom: 0
+                    },
+                    '.pattern-curve-top-right': {
+                        zIndex: -1,
+                        display: 'block',
+                        position: 'absolute',
+                        left: -165,
+                        top: 230
+                    },
                 },
                 
             }}
@@ -118,6 +152,7 @@ function Description() {
                 <img className="desktop enjoyable-place" src={EnjoyablePlaceDesktop} alt="enjoyable-place-dekstop" />
                 <img className="tablet enjoyable-place" src={EnjoyablePlaceTablet} alt="enjoyable-place-tablet" />
                 <img className="mobile enjoyable-place" src={EnjoyablePlaceMobile} alt="enjoyable-place-mobile" />
+                <PatternTopRightCurve className="pattern-curve-top-right" />
                 <div className="container__text">
                     <DivideLine />
                     <H2 variant="dark" className="title">Enjoyable place for all the family</H2>
@@ -129,6 +164,8 @@ function Description() {
                 <img className="desktop" src={LocallySourceDesktop} alt="locally-sourced-dekstop" />
                 <img className="tablet" src={LocallySourceTablet} alt="locally-sourced-tablet" />
                 <img className="mobile" src={LocallySourceMobile} alt="locally-sourced-mobile" />
+                <PatternLines className="pattern-lines" />
+                <PatternTopLeftCurve className="pattern-curve-top-left" />
                 <div className="container__text">
                     <DivideLine />
                     <H2 variant="dark" className="title">The most locally sourced food</H2>

@@ -1,8 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css } from '@emotion/react'
-import { useEffect, useState } from 'react'
-import {ReactComponent as DivideLine} from '../assets/patterns/pattern-divide.svg'
-import {ReactComponent as PatternTopLeftCurve} from '../assets/patterns/pattern-curve-top-left.svg'
+import { useState } from 'react'
+import {ReactComponent as PatternLines} from '../assets/patterns/pattern-lines.svg'
 import {ReactComponent as PatternTopRightCurve} from '../assets/patterns/pattern-curve-top-right.svg'
 import FamilyDesktop from '../assets/homepage/family-gathering-desktop.jpg'
 import FamilyTablet from '../assets/homepage/family-gathering-tablet.jpg'
@@ -57,6 +55,11 @@ function Family() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 textAlign: 'center',
+                position: 'relative',
+                'svg': {
+                    display: 'none'
+                },
+
                 '.links': {
                     marginTop: 48,
                     marginBottom: 8,
@@ -104,12 +107,25 @@ function Family() {
                     display: 'block'
                 },
                 '@media (min-width: 768px) and (max-width: 1439px)': {
-                    padding: '40px 120px',
+                    padding: '120px 40px',
                     'img.tablet': {
                         display: 'block'
                     },
                     'img.mobile': {
                         display: 'none'
+                    },
+                    '.pattern-top-right': {
+                        display: 'block',
+                        position: 'absolute',
+                        top: 0,
+                        left: -500,
+                        zIndex: -1,
+                    },
+                    '.pattern-lines': {
+                        display: 'block',
+                        position: 'absolute',
+                        top: 82,
+                        left: 72
                     },
                     '.links': {
                         flexDirection: 'row',
@@ -123,12 +139,26 @@ function Family() {
                     display: 'grid',
                     gridTemplateColumns: '1fr 1fr',
                     gridTemplateRows: '1fr 1fr',
+                    columnGap: '150px',
                     'img.desktop': {
                         display: "block",
                         gridRow: '1 / 3'
                     },
                     'img.mobile': {
                         display: 'none'
+                    },
+                    '.pattern-top-right': {
+                        display: 'block',
+                        position: 'absolute',
+                        top: 0,
+                        left: -360,
+                        zIndex: -1,
+                    },
+                    '.pattern-lines': {
+                        display: 'block',
+                        position: 'absolute',
+                        top: 122,
+                        left: 125
                     },
                     '.links': {
                         gridColumn: '2 / 3',
@@ -158,6 +188,8 @@ function Family() {
                 }
             })}
         >   
+            <PatternTopRightCurve className="pattern-top-right" />
+            <PatternLines className="pattern-lines" />
             <img src={Datas[themeDisplayed].desktop} className="desktop" alt="desktop" />
             <img src={Datas[themeDisplayed].tablet} className="tablet" alt="tablet" />
             <img src={Datas[themeDisplayed].mobile} className="mobile" alt="mobile" />

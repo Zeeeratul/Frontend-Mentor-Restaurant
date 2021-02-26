@@ -4,18 +4,31 @@ import styled from '@emotion/styled'
 
 function TextField({ 
     placeholder = "",
-    error = true,
-    errorMessage = "This field is required"
+    name,
+    value,
+    action,
+    error = false,
+    errorMessage = "This field is required",
+    type = 'text'
 }) {
 
-
     return (
-        <div>
+        <div
+            css={{
+                width: '100%',
+                marginBottom: 32,
+            }}
+        >
             <input
                 placeholder={placeholder}
+                onChange={action}
+                name={name}
+                value={value}
+                type={type}
                 css={theme => ({
-                    width: 374,
-                    height: 28,
+                    boxSizing: 'border-box',
+                    width: '100%',
+                    height: 50,
                     fontFamily: 'Spartan',
                     color: theme.colors.primary.gray,
                     border: 'none',
@@ -32,18 +45,20 @@ function TextField({
                     }
                 })}
             />
-            <p
-                css={theme => ({
-                    color: theme.colors.error,
-                    fontWeight: 500,
-                    fontSize: 10,
-                    marginTop: 8,
-                    marginLeft: 16,
+            {error &&
+                <p
+                    css={theme => ({
+                        color: theme.colors.error,
+                        fontWeight: 500,
+                        fontSize: 10,
+                        marginTop: 8,
+                        marginLeft: 16,
 
-                    // lineHeight: 11,
-                    letterSpacing: -0.125,
-                })}
-            >{errorMessage}</p>
+                        // lineHeight: 11,
+                        letterSpacing: -0.125,
+                    })}
+                >{errorMessage}</p>
+            }
         </div>
     )
 }

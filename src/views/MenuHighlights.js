@@ -8,8 +8,6 @@ import ChocolateDesktopTablet from '../assets/homepage/chocolate-desktop-tablet.
 import ChocolateMobile from '../assets/homepage/chocolate-mobile.jpg'
 import { H3bold, H2, Body1, Body2 } from '../components/Typos'
 
-
-
 function MenuHighlights() {
 
     return (
@@ -69,14 +67,26 @@ function MenuHighlights() {
                 // Tablet Style
                 '@media (min-width: 768px) and (max-width: 1439px)': {
                     padding: '96px 98px 96px 98px',
+                    alignItems: 'center',
                     '.title__container': {
                         marginBottom: 56,
                     },
                     '.recipes__container': {
+                        width: 573,
                         '.recipe': {
+                            position: 'relative',
                             flexDirection: 'row',
                             justifyContent: 'space-between',
                             paddingBottom: 24,
+                            'svg': {
+                                position: 'absolute',
+                                top: 10,
+                                left: 87,
+                                zIndex: 0
+                            },
+                            'img': {
+                                zIndex: 1,
+                            },
                             'div': {
                                 maxWidth: 400,
                                 textAlign: 'left',
@@ -116,6 +126,16 @@ function MenuHighlights() {
                             flexDirection: 'row',
                             justifyContent: 'space-between',
                             paddingBottom: 24,
+                            position: 'relative',
+                            'svg': {
+                                position: 'absolute',
+                                top: 10,
+                                left: 87,
+                                zIndex: 0
+                            },
+                            'img': {
+                                zIndex: 1,
+                            },
                             'div': {
                                 marginLeft: 68,
                                 maxWidth: 400,
@@ -153,6 +173,7 @@ function MenuHighlights() {
                     >
                         <img className="mobile" alt="salmon" src={SalmonMobile} />
                         <img className="tablet-desktop" alt="salmon" src={SalmonDesktopTablet} />
+                        <DivideLine />
                         <div>
                             <H3bold variant="light">Seared Salmon Fillet</H3bold>
                             <Body2 variant="light">Our locally sourced salmon served with a refreshing buckwheat summer salad.</Body2>
@@ -164,6 +185,7 @@ function MenuHighlights() {
                     >
                         <img className="mobile" alt="beef" src={BeefMobile} />
                         <img className="tablet-desktop" alt="beef" src={BeefDesktopTablet} />
+                        <DivideLine />
                         <div>
                             <H3bold variant="light">Rosemary Filet Mignon</H3bold>
                             <Body2 variant="light">Our prime beef served to your taste with a delicious choice of seasonal sides.</Body2>
@@ -175,6 +197,7 @@ function MenuHighlights() {
                     >
                         <img className="mobile" alt="chocolate" src={ChocolateMobile} />
                         <img className="tablet-desktop" alt="chocolate" src={ChocolateDesktopTablet} />
+                        <DivideLine />
                         <div>
                             <H3bold variant="light">Summer Fruit Chocolate Mousse</H3bold>
                             <Body2 variant="light">Creamy mousse combined with summer fruits and dark chocolate shavings.</Body2>
