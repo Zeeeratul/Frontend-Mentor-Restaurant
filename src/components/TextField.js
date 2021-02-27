@@ -1,14 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import styled from '@emotion/styled'
-
-
 function TextField({ 
     placeholder = "",
     name,
     value,
     action,
+    errorMessage = "",
     error = false,
-    errorMessage = "This field is required",
     type = 'text'
 }) {
 
@@ -30,7 +27,7 @@ function TextField({
                     width: '100%',
                     height: 50,
                     fontFamily: 'Spartan',
-                    color: theme.colors.primary.gray,
+                    color: error ? theme.colors.error : theme.colors.primary.gray,
                     border: 'none',
                     borderBottom: `1px solid ${error ? theme.colors.error : theme.colors.primary.gray}`,
                     padding: '0px 0px 16px 16px',
@@ -45,7 +42,7 @@ function TextField({
                     }
                 })}
             />
-            {error &&
+            {error && errorMessage &&
                 <p
                     css={theme => ({
                         color: theme.colors.error,
@@ -53,8 +50,6 @@ function TextField({
                         fontSize: 10,
                         marginTop: 8,
                         marginLeft: 16,
-
-                        // lineHeight: 11,
                         letterSpacing: -0.125,
                     })}
                 >{errorMessage}</p>

@@ -13,6 +13,7 @@ import SpecialTablet from '../assets/homepage/special-events-tablet.jpg'
 import SpecialMobile from '../assets/homepage/special-events-mobile.jpg'
 import { H2, Body1 } from '../components/Typos'
 import Button from '../components/Button'
+import { useHistory } from "react-router-dom"
 
 const Datas = {
     family: {
@@ -41,6 +42,9 @@ const Datas = {
 }
 
 function Family() {
+    const history = useHistory()
+    const handleClick = () => history.push('/booking')
+
     const [themeDisplayed, setThemeDisplayed] = useState('family')
 
     const handleClickDisplayImage = (image) => {
@@ -216,7 +220,7 @@ function Family() {
             <div className="description">
                 <H2 variant="dark">{Datas[themeDisplayed].title}</H2>
                 <Body1 variant="dark">{Datas[themeDisplayed].text}</Body1>
-                <Button variant="dark">Book a table</Button>
+                <Button variant="dark" onClick={handleClick}>Book a table</Button>
             </div>
         </section>
 

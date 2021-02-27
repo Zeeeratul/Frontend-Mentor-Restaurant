@@ -5,14 +5,15 @@ import { useState } from 'react'
 
 function Dropdown({ 
     value="AM",
-    action
+    action, 
 }) {
 
     const [open, setOpen] = useState(false)
 
     return (
         <div
-            css={{
+
+            css={theme => ({
                 cursor: 'pointer',
                 position: 'relative',
                 boxSizing: 'border-box',
@@ -63,9 +64,9 @@ function Dropdown({
                         }
                     },
                 }
-            }}
+            })}
         >
-            <div className="title__container" onClick={() => setOpen(!open)}>
+            <div className={`title__container`} onClick={() => setOpen(!open)}>
                 <p>{value}</p>
                 <ArrowDown className={open ? 'open' : ''} />
             </div>

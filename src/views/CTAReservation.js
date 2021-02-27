@@ -4,8 +4,12 @@ import BackgroundPizzaTablet from '../assets/homepage/ready-bg-tablet.jpg'
 import BackgroundPizzaMobile from '../assets/homepage/ready-bg-mobile.jpg'
 import Button from '../components/Button'
 import { H2 } from '../components/Typos'
+import { useHistory } from "react-router-dom"
 
 function CTAReservation() {
+    const history = useHistory()
+    const handleClick = () => history.push('/booking')
+
     return (
         <section
             css={{
@@ -15,7 +19,8 @@ function CTAReservation() {
                 alignItems: 'center',
                 textAlign: 'center',
                 backgroundImage: `url(${BackgroundPizzaMobile})`,
-                // backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
                 'h2': {
                     marginTop: 0,
                     marginBottom: 24,
@@ -42,7 +47,7 @@ function CTAReservation() {
             }}
         >
             <H2 variant="light">Ready to make a reservation?</H2>
-            <Button variant="light">Book a table</Button>
+            <Button variant="light" onClick={handleClick}>Book a table</Button>
         </section>
     )
 }
